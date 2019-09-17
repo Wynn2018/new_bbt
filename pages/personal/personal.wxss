@@ -1,0 +1,50 @@
+/* pages/personal/personal.wxss */
+.head{
+  width:100%;
+  flex: wrap;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap; /*决定换行方式*/
+  flex-direction: row; /*决定主轴方向*//*flex-flow 暂时不知道干啥的*/
+  justify-content: flex-start; /*在主轴上的分布方式*/
+  align-items: flex-start; /*在交叉轴上如何对齐。。。？？？*/
+  align-content: stretch; /*在两根交叉轴的而为平面如何分布*/
+  border-bottom: 10px solid rgb(240, 240, 240);
+}
+.personal_text{
+  margin-top: 2%;
+  margin-left: 3%;
+  width:47%;
+  height:80px;
+}
+.information{
+  width:100%;
+  height:50px;
+  border-bottom: 1px solid rgb(201, 200, 200);
+  line-height: 50px;
+  display: flex;
+  flex-wrap: wrap; /*决定换行方式*/
+  flex-direction: row; /*决定主轴方向*//*flex-flow 暂时不知道干啥的*/
+  justify-content: flex-start; /*在主轴上的分布方式*/
+  align-items: flex-start; /*在交叉轴上如何对齐。。。？？？*/
+  align-content: stretch; /*在两根交叉轴的而为平面如何分布*/
+}
+.number_container{
+  display: flex;
+  flex-wrap: wrap; /*决定换行方式*/
+  flex-direction: row; /*决定主轴方向*//*flex-flow 暂时不知道干啥的*/
+  justify-content: flex-end; /*在主轴上的分布方式*/
+  align-items: flex-end; /*在交叉轴上如何对齐。。。？？？*/
+  align-content: stretch; /*在两根交叉轴的而为平面如何分布*/
+  width:47%;
+  margin-right: 3%;
+}
+.text{
+  width:47%;
+  margin-left: 3%;
+  font-size: 20px;
+}
+.number{
+  position: absolute;
+  right:3px;
+}

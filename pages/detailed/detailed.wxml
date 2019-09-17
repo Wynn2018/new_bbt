@@ -1,0 +1,21 @@
+<view class="logo">
+<open-data type="userAvatarUrl" class="userinfo" id="userinfo" style="margin-left: 10px;" ></open-data>
+</view>
+
+<view class="head">
+<text style="margin-left: 70px;">用户名</text>
+</view>
+
+<view class="box-01">
+<text style="margin-left: 10px;" >商品：校叮当</text>
+<text style="margin-left: 10px;">价格：5000¥</text>
+<text style="margin-left: 10px;">商品详情：DT团队做的小程序</text>
+<text style="margin-left: 10px;">交易方式：自提</text>
+<text style="margin-left: 10px;">具体私聊</text>
+</view>
+
+<view class="picture">
+<image class="picture" src="../../images/图标.jpg"></image>
+<image class="picture" src="../../images/图标.jpg"></image>
+<image class="picture" src="../../images/图标.jpg"></image>
+</view>

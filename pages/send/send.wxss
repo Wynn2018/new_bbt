@@ -1,0 +1,128 @@
+.box-01 {
+  display: flex;
+  flex-wrap: wrap; /*决定换行方式*/
+  flex-direction: row; /*决定主轴方向*//*flex-flow 暂时不知道干啥的*/
+  justify-content: flex-start; /*在主轴上的分布方式*/
+  align-items: flex-start; /*在交叉轴上如何对齐。。。？？？*/
+  align-content: stretch; /*在两根交叉轴的而为平面如何分布*/
+  padding: 5px;
+  border-bottom: 3px solid rgb(240, 240, 240);
+}
+
+.main-input {
+  min-height: 50px;
+  padding-left: 10px;
+  top: 10px;
+  /*background-color: green;*/
+  margin-bottom: 15px;
+}
+
+.picture,.picture-container,.add{
+  width: 70px;
+  height: 70px;
+  margin: 10px;
+}
+
+.picture {
+  margin: 0px;
+  position: relative;
+}
+
+.head {
+  height: 42px;
+  width: 100%;
+  border-bottom: 1rpx solid rgb(206, 206, 207);
+}
+
+.head-input {
+  margin-left: 5px;
+  height: 45px;
+  padding-left: 10px;
+}
+
+.main {
+  /*background-color: yellow;*/
+  height: 200px;
+  border-bottom: 5rpx solid rgb(206, 206, 207);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.main-input {
+  min-height: 110px;
+  padding-left: 10px;
+  top: 10px;
+  /*background-color: green;*/
+}
+
+.max-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /*background-color:blueviolet;*/
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /*background-color: greenyellow;*/
+}
+
+.container-buttom {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /*background-color: blue;*/
+}
+
+.left {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.right {
+  margin-top: 12px;
+}
+
+.buttom {
+  height: 45px;
+  width: 80px;
+  border: 1px solid #fff;
+  font-size: 15px;
+  margin: 5px;
+}
+
+.qita {
+  margin-left: 10px;
+  height: 35px;
+  width: 69px;
+  font-size: 13px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.submit-button {
+  position: sticky;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: 5;
+  background-color: rgb(190, 215, 243);
+  border-radius: 0px;
+}
+
+.delete {
+  top: 0px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}

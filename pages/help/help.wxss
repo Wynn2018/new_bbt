@@ -1,0 +1,15 @@
+.add {
+  position: fixed;
+  width: 150rpx;
+  height: 150rpx;
+  right: 10px;
+  bottom: 20px;
+}
+
+.taptap {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}

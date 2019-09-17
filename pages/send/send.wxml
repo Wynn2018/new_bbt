@@ -1,0 +1,49 @@
+<form bindsubmit='res'>
+  <view class="head">
+    <input class="head-input" placeholder="输入物品标题" focus="{{focus}}" name="name" />
+  </view>
+
+  <view class="box-01">
+    <textarea name="content" placeholder='请输入商品详情' class='main-input' cursor-spacing='30' auto-height name="description"></textarea>
+
+    <view class="picture-container" wx:if='{{item_image}}' wx:for='{{item_image}}' wx:key="{{index}}">
+      <image class="picture" src="{{item}}">
+        <!--这里是上传得照片遍历显示出来-->
+        <image class="delete" src="../../images/delete2.png" id="{{index}}" bindtap="deleteLast"></image>
+        <!--每张照片右上角的删除符号-->
+      </image>
+    </view>
+    
+    <image wx:if="{{item_image.length < 6}}" class="add" src="../../images/add.png" bindtap="uploader"></image>
+    <!--添加照片的那个按钮-->
+  </view>
+
+  <view class="container">
+    <text style="margin-top: 5px;margin-left: 10px;">价格：</text>
+    <input style="margin-top: 5px;margin-left: 10px;" placeholder="输入价格" focus="{{focus}}" name="price" />
+  </view>
+
+  <view class="container">
+    <text style="margin-left: 10px;">微信：</text>
+    <input style="margin-left: 10px;" placeholder="微信号" focus="{{focus}}" name="wechat" />
+  </view>
+
+  <view class="container">
+    <text style="margin-left: 10px;">电话：</text>
+    <input style="margin-left: 10px;" placeholder="电话号" focus="{{focus}}" name="tel_number" />
+  </view>
+
+
+  <text style="margin-left: 14px;">标签选择：</text>
+
+  <view class="container-buttom">
+    <button id='1' class="buttom" style="background-color:{{pageBackgroundColor1}}" bindtap="addTag1"> 书籍</button>
+    <button id='2' class="buttom" style="background-color:{{pageBackgroundColor2}}" bindtap="addTag2"> 化妆品</button>
+    <button id='3' class="buttom" style="background-color:{{pageBackgroundColor3}}" bindtap="addTag3"> 生活用品</button>
+    <button id='4' class="buttom" style="background-color:{{pageBackgroundColor4}}" bindtap="addTag4"> 体育用品</button>
+    <button id='5' class="buttom" style="background-color:{{pageBackgroundColor5}}" bindtap="addTag5"> 其他</button>
+  </view>
+  <button class="submit-button" form-type='submit'>确认发布</button>
+  
+
+</form>

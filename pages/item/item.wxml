@@ -1,0 +1,70 @@
+<!-- 顶部搜索栏 -->
+<view class='title'>
+  <view class='search'>
+    <image class='search-button' src='../../icon/search.png' bindtap='download'></image>
+  </view>
+  <view class='blank'></view>
+  <input class='input-search' placeholder='请输入要查找的商品~' bindinput='content'/>
+</view>
+
+<!-- 中间选项栏 -->
+<!-- <view class='tool-bar'>
+  <image class='tool-bar-item' src='../../icon/book.png' style='left:6.25%' bindtap='changeToBook'></image>
+  <image class='tool-bar-item' src='../../icon/daily.png' style='left:20%' bindtap='changeToDaily'></image>
+  <image class='tool-bar-item' src='../../icon/cosmetics.png' style='left:35%' bindtap='changeToCosmetics'></image>
+  <image class='tool-bar-item' src='../../icon/book2.png' style='left:47.5%' bindtap='changeToBook2'></image>
+</view> -->
+<view class='tool-bar'>
+  <text class='tool-bar-text' style='left:7.25%' bindtap='changeToBook'>教材</text>
+  <text class='tool-bar-text' style='left:20%' bindtap='changeToDaily'>生活</text>
+  <text class='tool-bar-text' style='left:32.75%' bindtap='changeToCosmetics'>美妆</text>
+  <text class='tool-bar-text' style='left:44.5%' bindtap='changeToBook2'>学习</text>
+</view>
+
+
+<!-- <scroll-view class='goods' scroll-y='true'>
+  <view class='item1'></view>
+  <view class='item2'></view>
+  <view class='item1'></view>
+  <view class='item2'></view>
+  <view class='item1'></view>
+  <view class='item2'></view>
+  <view class='item1'></view>
+  <view class='item2'></view>
+</scroll-view> -->
+
+<!-- 商品显示界面的瀑布流 -->
+<!-- <view class='container'>
+  <view class='container-column'>
+    <view class='item' wx:if="{{index % 2 == 0 }}" wx:for="{{item_url}}" wx:key="{{index}}">
+      <image class='picture' src='{{item}}'></image>
+      <view>让一切不民主的制度死亡！</view>
+    </view>
+  </view>
+  <view class='container-column'>
+    <view class='item' wx:if="{{index % 2 != 0 }}" wx:for="{{item_url}}" wx:key="{{index}}">
+      <image class='picture' src='{{item}}'></image>
+      <view>向着法西斯开火！</view>
+    </view>
+  </view>
+</view> -->
+
+<!-- 商品显示无脑条状版 -->
+<view id='{{item._id}}' wx:for='{{item_url}}' wx:key='{{index}}' class='item' bindtap='goTo'>
+  <image src='{{item.cloudID[0]}}' style='height: 100%; width: 40%;'></image>
+  <view style='position: absolute;display: inline; height: 23%; width: 56%; padding-top: 2%;padding-left: 2%;'>
+    <view style='word-break:break-all'>{{item.name}}
+    </view>
+    <view class='description'>{{item.description}}</view>
+        <view style='position: absolute; bottom: 15%; left: 0.5%; font-size: 15px; color: 15px; color: gray; margin-left: 4%;'>点击次数：{{item.view_time}}</view>
+    <view style='position: absolute; bottom: 3%; left: 0.5%; font-size: 15px; color: 15px; color: gray; margin-left: 4%;'>{{item.time}}</view>
+    <view style='position: absolute; bottom: 3%; right: 2%; font-size: 15px; color: gray;'>¥  {{item.price}}</view>
+    </view>
+  </view>
+
+  <!-- <view class="com-widget-goTop" bindtap="goTop">
+    <view class="icon-gotop"> -->
+  <image src='../../icon/gotop.png' class="goTop" bindtap='goTop' wx:if="{{floorstatus}}"></image>
+<view class="load_more" bindtap='load_more'>加载更多</view>
+  <!-- </view>
+</view> -->

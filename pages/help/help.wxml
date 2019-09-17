@@ -1,0 +1,35 @@
+<image class='add' src='../../images/add.png' bindtap='addHelp'></image>
+<zan-popup show="{{isShow}}" bindclose="togglePopup">
+  <view style='height: 400px; width: 300px;'>
+    <form bindsubmit='createSubmit'>
+      <view class='taptap'>
+        <view>起点：</view>
+        <input placeholder="请输入起点" name='start' value="{{start}}"></input>
+      </view>
+      <view class='taptap'>
+        <view>终点：</view>
+        <input placeholder="请输入终点" name='end' value="{{end}}"></input>
+      </view>
+      <view class='taptap'>
+        <view>截止时间：</view>
+        <input placeholder="请输入截止时间" name='ddl'  value="{{ddl}}"></input>
+      </view>
+      <view class='taptap'>
+        <view>联系电话：</view>
+        <input placeholder="请输入联系电话" name='phone' value="{{phone}}"></input>
+      </view>
+       <view class='taptap'>
+        <view>酬劳：</view>
+        <input placeholder="请输入酬劳" name='pay' value="{{pay}}"></input>
+      </view>
+      <view class='taptap' style='display: flex; flex-direction: column;'>
+        <view>说明：</view>
+        <textarea  placeholder="请输入简要说明" style='margin-top: 2.5%; width: 95%; height: 80px;' value="{{intro}}" placeholder-style="color: gray" name='intro'></textarea>
+      </view>
+      <view class='taptap' style="margin-top: 10%;">
+        <button bindtap="togglePopup">取消</button>
+        <button form-type='submit'>确定</button>
+      </view>
+    </form>
+  </view>
+</zan-popup>

@@ -1,0 +1,29 @@
+<!--pages/personal/personal.wxml-->
+<view class='head' bindtap='gotoGoods'>
+  <view class='personal_text'>
+    <view style='font-size:25px;font-weight:900;'>崔雅琦</view>
+    <view style='font-size:15px;'>KID</view>
+    <view style='font-size:15px;'>交易单数： {{deal}}</view>
+  </view>
+
+  <view class='number_container'>
+    <image src='../../images/超人.jpg' style='margin-top:12px;width:70px;height:70px;'></image>
+    <image src='../../images/右侧按钮.png' style='margin-left:20px;margin-top:12px;width:20px;height:70px;'></image>
+  </view>
+</view>
+
+<view class='information' bindtap='to_myGoods'>
+  <view class='text'>我发布的</view>
+  <view class='number_container'>
+    <view style='font-size:15px;color:grey;'>{{myGoods_number}}</view>
+    <image src='../../images/右侧按钮.png' style='margin-left:10px;width:20px;height:50px;'></image>
+  </view>
+</view>
+
+<view class='information' bindtap='to_collection'>
+  <view class='text' >我收藏的</view>
+  <view class='number_container'>
+    <view style='font-size:15px;color:grey;'>{{collection_number}}</view>
+    <image src='../../images/右侧按钮.png' style='margin-left:10px;width:20px;height:50px;'></image>
+  </view>
+</view>

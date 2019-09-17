@@ -1,0 +1,82 @@
+/* pages/run_item/run_item.wxss */
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  width: 100%;
+  line-height: 50px;
+}
+
+.from {
+  height: 50px;
+  font-size: 20px;
+  line-height: 50px;
+  width: 80px;
+  text-align: center;
+  background-color: rgb(210, 231, 255);
+}
+
+.button_place {
+  height: 50px;
+  line-height: 50px;
+  width: 100%;
+}
+
+.button {
+
+  height: 35px;
+  line-height: 35px;
+  width: 100px;
+  font-size: 15px;
+  border-radius: 15px;
+}
+
+.place_board {
+  width: 100%;
+  background-color: rgb(209, 209, 209);
+}
+
+.inner {
+  padding-top: 10px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.dormitry {
+  padding-top: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /*决定换行方式*/
+}
+
+.title{
+  border-bottom: 1px solid rgb(202, 202, 202);
+}
+
+button::after {
+  border: none
+}
+
+.item{
+  height:140px;
+  width:100%;
+  font-size: 18px;
+}
+
+.des{
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  height:60px;
+  width:95%;
+  margin-left:2.5%;
+  font-size:16px;
+  line-height:20px;
+}

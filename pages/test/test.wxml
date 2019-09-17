@@ -1,0 +1,4 @@
+<view wx:for="{{array}}" wx:key="{{index}}">
+  {{index}}: {{item.message}}
+</view>
+<button bindtap="forList">add</button>

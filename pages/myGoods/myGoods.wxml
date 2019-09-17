@@ -1,0 +1,11 @@
+<view id='{{item._id}}' wx:for='{{goods_info}}' wx:key='{{index}}' class='item' bindtap='goTo'>
+  <image src='{{item.cloudID[0]}}' style='height: 100%; width: 40%;'></image>
+  <view style='position: absolute;display: inline; height: 23%; width: 56%; padding-top: 2%;padding-left: 2%;'>
+    <view style='word-break:break-all'>{{item.name}}
+    </view>
+    <view class='description'>{{item.description}}</view>
+        <view style='position: absolute; bottom: 15%; left: 0.5%; font-size: 15px; color: 15px; color: gray; margin-left: 4%;'>点击次数：{{item.view_time}}</view>
+    <view style='position: absolute; bottom: 3%; left: 0.5%; font-size: 15px; color: 15px; color: gray; margin-left: 4%;'>{{item.time}}</view>
+    <view style='position: absolute; bottom: 3%; right: 2%; font-size: 15px; color: gray;'>¥  {{item.price}}</view>
+    </view>
+  </view>

@@ -1,0 +1,43 @@
+.box-01{
+display: flex;
+flex-wrap: wrap; /*决定换行方式*/
+flex-direction: column;/*元素从上往下放*/
+justify-content: space-around;/*垂直方向上均匀分布*/
+align-content: stretch;/*在两根交叉轴的而为平面如何分布*/
+padding: 3px;
+border-bottom: 3px solid rgb(240, 240, 240);
+line-height:2.0em;/*行间距*/
+font-family:"宋体";
+}
+
+.picture{
+display:flex;
+flex-direction: column;/*元素从上往下放*/
+justify-content: center; 
+align-items:center; 
+}
+
+.head{
+height:42px;
+width:100%;
+font-family:"宋体";/*把字改成宋体*/
+border-bottom: 1rpx solid rgb(206, 206, 207);
+}
+
+.head-input{
+margin-left:5px;
+height:45px;
+padding-left:10px;
+}
+
+
+
+/*获取用户头像*/
+#userinfo{
+width: 100rpx;
+height:100rpx;
+border-radius:50%;
+display: flex;
+overflow:hidden;
+text-align: center;
+}

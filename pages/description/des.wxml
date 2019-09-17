@@ -1,0 +1,56 @@
+<!-- 
+<view class="container"style="border-bottom: 2rpx solid rgb(206, 206, 207);"> 
+  <view class="head">
+  {{name}}
+  </view>
+</view>
+<view style="padding-left:10px; padding-top:15px; padding-bottom:10px; font-weight:800;">¥  {{price}}</view>
+<view class="des">
+ <text>{{description}}</text>
+</view>
+
+<view wx:for='{{img}}' >
+    <image class="img" src="{{item}}"></image>
+</view>
+
+<view class="bottom">
+<button style="margin-left:0px;width:130px;" bindtap="download">收藏</button>
+<button style="margin-right:0px; width:250px;" bindtap='showimg'>购买</button>
+</view> -->
+
+<swiper autoplay='true' duration='1000' previous-margin='20px' next-margin='20px' indicator-dots='true'>
+  <swiper-item wx:for='{{img}}' wx:key='{{index}}'>
+    <image src='{{item}}' style='height: 100%; width: 100%;'></image>
+  </swiper-item>
+</swiper>
+<view style='margin-top: 2.5%; margin-left: 5%; color: rgb(200,201,202)'>发布时间：{{time}}</view>
+
+<!-- 商品介绍 -->
+<view class='container-row'>
+  <view class='title'>hahahaahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah</view>
+  <view style='margin: 5% 7%; font-size: 22px'>{{price}}元</view>
+</view>
+<view style='margin: 5% 4%; width: 90%; border: solid 1px black;'>
+  {{description}}
+</view>
+<view class='container-row' style='flex-wrap: wrap; margin: 5% 4%;'>
+  <view style='width: 100%;'>标签：</view>
+  <view wx:for='{{tag}}' wx:key='{{index}}' style='width: 20%; background: rgb(200,201,202); text-align: center; border-radius: 5px; margin: 1.5% 1% 0% 1%;'>{{item}}</view>
+  <view wx:if='{{!tag}}' style='color: rgb(200,201,202)'>卖家没有设置标签~</view>
+</view>
+
+<view style='margin-left: 4%;'>取货方式：自提</view>
+<view style='margin-left: 4%; margin-top: 5%;'>微信号码：{{wechat}}</view>
+<view style='margin-left: 4%; margin-top: 5%;'>电话号码：{{tel}}</view>
+
+<view style='position: relative; bottom: 0; background: rgb(200,201,202); height: 8%; margin-top: 5%; width: 100%; padding: 18rpx;'>
+  <view class='container-row' style='position: relative; left: 3%; top: 18rpx;'>
+    <image style='height: 25px; width: 40px;' src='../../icon/share.svg'></image>
+    <view style='font-size: 15px; margin-top: 8rpx;'>分享</view>
+    <image style='height: 25px; width: 40px; margin-left: 5%;' src='../../icon/collect.svg' bindtap='collect'></image>
+    <view style='font-size: 15px; margin-top: 8rpx;' bindtap='collect'>收藏</view>
+
+    <view style='margin-left: 10%; margin-top: 5rpx;'>{{price}}¥</view>
+    <button style='font-size: 16px; bottom: 10rpx; right: 22rpx;'>联系卖家</button>
+  </view>
+</view>
