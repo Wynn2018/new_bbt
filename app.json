@@ -1,8 +1,8 @@
 {
   "cloud": true,
   "pages": [
-    "pages/conference/conference",
     "pages/main/main",
+    "pages/conference/conference",
     "pages/my_run/my_run",
     "pages/run_item/run_item",
     "pages/help/help",
