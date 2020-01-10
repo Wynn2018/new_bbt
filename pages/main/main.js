@@ -37,6 +37,11 @@ Page({
           url: '../run_item/run_item',
         })
         break;
+      case "查询讲座":
+        wx.navigateTo({
+          url: '../conference/conference',
+        })
+        break;
       default:
         wx.showToast({
           title: '暂未开放此功能',
@@ -59,7 +64,7 @@ Page({
     }).get({
       success(res) {
         //获取用户收藏的物品的id
-        console.log(res.data )
+        console.log(res.data)
         app.globalData.myCollection = res.data[0].myCollection
       },
       fail: err => {
@@ -80,6 +85,29 @@ Page({
           app.globalData.myGoods_number.push(item._id)
         })
         console.log('???', app.globalData.myGoods_number)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '获取失败'
+        })
+        console.error('[数据库] [获取] 失败：', err)
+      }
+    })
+    app.globalData.myHelp=[]
+    app.globalData.myHelp_info=[]
+    db.collection('help').where({
+      _openid: 'oXR3I5fXblGdZNESnv245pd6nXVg'
+    }).get({
+      success(res) {
+        console.log(res)
+        //获取用户发布的跑腿的id
+        res.data.forEach((item, i) => {
+          app.globalData.myHelp.push(item._id)
+          //app.globalData.myHelp_info.push(item)
+        })
+        console.log('发布的跑腿', app.globalData.myHelp)
+        console.log('发布的跑腿', app.globalData.myHelp_info)
       },
       fail: err => {
         wx.showToast({

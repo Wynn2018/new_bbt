@@ -1,0 +1,14 @@
+<view class="input_block">
+  <input placeholder='asdfasdf' class="input" bindinput="get_input"></input>
+  <view class="search_button_block">
+    <image src="../../images/搜索.png" class="search_button" bindtap="search"></image>
+  </view>
+
+</view>
+
+<view class="main_block">
+  <view id='{{item._id}}' wx:for='{{all}}' wx:key='{{index}}' class="info_block">
+    <view class="name">{{item.name}}</view>
+    <view class="info">{{item.info}}</view>
+  </view>
+</view>

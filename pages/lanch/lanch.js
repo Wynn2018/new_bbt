@@ -1,4 +1,5 @@
 wx.cloud.init()
+const app = getApp()
 const appid = "wx0d01ebf44be82973"
 const secret = "41450109dcc872fa4d406a2d7d894830"
 const db = wx.cloud.database()
@@ -17,12 +18,29 @@ Page({
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
-          wx.switchTab({
-            url: '../main/main',
-            success: function (res) { },
-            fail: function (res) { },
-            complete: function (res) { },
-          })
+          var code = undefined;
+          var _openid = undefined;
+          //获取用户的openid
+          wx.login({
+            success: function (res) {
+              code = res.code;
+              wx.request({
+                url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&js_code=' + code + '&grant_type=authorization_code',
+                success(res) {
+                  // 获取到用户的 openid
+                  _openid = res.data.openid
+                  console.log("用户的openid:" + res.data.openid);
+                  app.globalData.openid = _openid
+                  wx.switchTab({
+                    url: '../main/main',
+                    success: function (res) { },
+                    fail: function (res) { },
+                    complete: function (res) { },
+                  })
+                }
+              });
+            }
+          });
         } else {
           // 用户没有授权
           // 改变 isHide 的值，显示授权页面

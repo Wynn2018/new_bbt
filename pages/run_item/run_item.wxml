@@ -67,20 +67,23 @@
   </view>
 </view>
 
-<view style='width:100%;background-color:rgb(222, 222, 222);'>
+
+<view style='padding-bottom:15px;width:100%;background-color:rgb(222, 222, 222);'>
 
   <view style="width:100%;height:5px;"></view>
 
-  <view id='{{item._id}}' wx:for='{{item_}}' wx:key='{{index}}' style='margin-bottom:5px;padding-top:10px;padding-bottom:10px;width:95%;margin-left:2.5%;background-color:white;'>
+  <view wx:for='{{item_}}' wx:key='{{index}}' style='margin-bottom:5px;padding-top:10px;padding-bottom:10px;width:95%;margin-left:2.5%;background-color:white;'>
     <view class="des">
       {{item.intro}}
     </view>
     <view style="display:flex;flex-direction:row;flex-wrap: wrap;margin-top:20px;">
-      <view style="width:50%;margin-left:2.5%;height:40px;">
+      <view style="width:50%;margin-left:2.5%;height:80px;">
+        <view style="color:grey;font-size:16px;height:20px;line-height:20px;">起点：{{item.start}}</view>
+        <view style="color:grey;font-size:16px;height:20px;line-height:20px;">终点：{{item.end}}</view>
         <view style="color:grey;font-size:16px;height:20px;line-height:20px;">联系方式:{{item.phone}}</view>
-        <view style="color:grey;font-size:16px;height:20px;line-height:20px;">截止时间:{{item.ddl}}</view>
+        <view style="width:220px;color:grey;font-size:16px;height:20px;line-height:20px;">截止时间:{{item.ddl}}</view>
       </view>
-      <view style="font-size:16px;margin-left:15%;height:20px;margin-top:20px;width:30%;text-align:right;">报酬:{{item.pay}}</view>
+      <view style="font-size:16px;height:20px;margin-top:60px;position:absolute;right:15px;">报酬:{{item.pay}}</view>
     </view>
   </view>
 </view>
@@ -123,3 +126,45 @@
   </view>
 </view>
  -->
+
+<image class='add' src='../../images/add.png' bindtap='addHelp'></image>
+<zan-popup show="{{isShow}}" bindclose="togglePopup">
+  <view style='height: 400px; width: 300px;'>
+    <form bindsubmit='createSubmit'>
+      <view class='taptap'>
+        <picker bindchange="bindStartChange" value="{{index_start}}" range="{{input_start}}">
+          <view class="picker">
+            选择起点：{{input_start[index_start]}}
+          </view>
+        </picker>
+      </view>
+      <view class='taptap'>
+        <picker bindchange="bindEndChange" value="{{index_end}}" range="{{input_end}}">
+          <view class="picker">
+            选择终点：{{input_end[index_end]}}
+          </view>
+        </picker>
+      </view>
+      <view class='taptap'>
+        <view>截止时间：</view>
+        <input placeholder="请输入截止时间" name='ddl' value="{{ddl}}"></input>
+      </view>
+      <view class='taptap'>
+        <view>联系电话：</view>
+        <input placeholder="请输入联系电话" name='phone' value="{{phone}}"></input>
+      </view>
+      <view class='taptap'>
+        <view>酬劳：</view>
+        <input placeholder="请输入酬劳" name='pay' value="{{pay}}"></input>
+      </view>
+      <view class='taptap' style='display: flex; flex-direction: column;'>
+        <view>说明：</view>
+        <textarea placeholder="请输入简要说明" style='margin-top: 2.5%; width: 95%; height: 80px;' value="{{intro}}" placeholder-style="color: gray" name='intro'></textarea>
+      </view>
+      <view class='taptap' style="margin-top: 10%;">
+        <button bindtap="togglePopup">取消</button>
+        <button form-type='submit'>确定</button>
+      </view>
+    </form>
+  </view>
+</zan-popup>

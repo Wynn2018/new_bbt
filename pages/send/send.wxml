@@ -38,12 +38,11 @@
 
   <view class="container-buttom">
     <button id='1' class="buttom" style="background-color:{{pageBackgroundColor1}}" bindtap="addTag1"> 书籍</button>
-    <button id='2' class="buttom" style="background-color:{{pageBackgroundColor2}}" bindtap="addTag2"> 化妆品</button>
-    <button id='3' class="buttom" style="background-color:{{pageBackgroundColor3}}" bindtap="addTag3"> 生活用品</button>
-    <button id='4' class="buttom" style="background-color:{{pageBackgroundColor4}}" bindtap="addTag4"> 体育用品</button>
+    <button id='2' class="buttom" style="background-color:{{pageBackgroundColor2}}" bindtap="addTag2"> 化妆</button>
+    <button id='3' class="buttom" style="background-color:{{pageBackgroundColor3}}" bindtap="addTag3"> 生活</button>
+    <button id='4' class="buttom" style="background-color:{{pageBackgroundColor4}}" bindtap="addTag4"> 体育</button>
     <button id='5' class="buttom" style="background-color:{{pageBackgroundColor5}}" bindtap="addTag5"> 其他</button>
   </view>
   <button class="submit-button" form-type='submit'>确认发布</button>
   
-
 </form>

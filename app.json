@@ -1,7 +1,9 @@
 {
   "cloud": true,
   "pages": [
+    "pages/conference/conference",
     "pages/main/main",
+    "pages/my_run/my_run",
     "pages/run_item/run_item",
     "pages/help/help",
     "pages/lanch/lanch",
@@ -22,18 +24,20 @@
   "tabBar": {
     "list": [
       {
+        "iconPath": "icon/home1.png",
+        "selectedIconPath": "icon/home1.png",
         "pagePath": "pages/main/main",
         "text": "首页"
       },
       {
         "pagePath": "pages/send/send",
+        "selectedIconPath": "icon/profile1.png",
+        "iconPath": "icon/profile1.png",
         "text": "发布闲置"
       },
       {
-        "pagePath": "pages/help/help",
-        "text": "发布跑腿"
-      },
-      {
+        "iconPath": "icon/member.png",
+        "selectedIconPath": "icon/member.png",
         "pagePath": "pages/personal/personal",
         "text": "个人"
       }

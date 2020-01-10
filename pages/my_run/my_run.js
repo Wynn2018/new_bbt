@@ -1,8 +1,9 @@
 // pages/run_item/run_item.js
 wx.cloud.init()
+var app = getApp()
 const db = wx.cloud.database()
-var app = getApp();
 Page({
+
   /**
    * 页面的初始数据
    */
@@ -29,25 +30,13 @@ Page({
   },
   
   onLoad: function () {
+    console.log('???')
     var that = this
-    db.collection('help').get({
-      success(res) {
-        console.log(res)
-        that.setData({
-          item_: res.data
-        })
-
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '获取失败'
-        })
-        console.error('[数据库] [获取] 失败：', err)
-      }
+    var temp = []
+    var path = []
+    that.setData({
+      item_: app.globalData.myHelp_info
     })
-
-
   },
 
   from_:function(){
@@ -60,13 +49,17 @@ Page({
 
   search:function(){
     var that=this
-    db.collection('help').where({start:that.data.start[0],end:that.data.destination[0]}).get({
+    console.log(that.data.destination)
+    console.log(that.data.start)
+    db.collection('help').where({
+      start:that.data.start[0],
+      end:that.data.destination[0]
+    }).get({
       success(res) {
-        console.log(res)
         that.setData({
           item_: res.data
         })
-
+        console.log(res)
       },
       fail: err => {
         wx.showToast({
@@ -76,7 +69,6 @@ Page({
         console.error('[数据库] [获取] 失败：', err)
       }
     })
-
   },
 
   to_: function () {
@@ -251,7 +243,6 @@ Page({
     this.setData({
       index_start: e.detail.value
     })
-    console.log(this.data.index_start)
   },
 
   bindEndChange: function (e) {
@@ -273,29 +264,28 @@ Page({
   },
 
   createSubmit: function (e) {
-    console.log(e.detail.value)
+    console.log(e)
     var values = e.detail.value
     var that=this
     if (!isempty(values)) {
+      wx.cloud.init()
+      const db = wx.cloud.database()
       var that = this;
-      var start_ = that.data.input_start[that.data.index_start]
-      var end_ = that.data.input_end[that.data.index_end]
-      console.log(app.globalData.user_id)
-      var id_ = app.globalData.user_id
+      var start = that.data.input_start[values['input_start']]
+      var end = that.data.input_end[values['input_end']]
       db.collection('help').add({
         data: {
-          intro: values.intro,
-          start: start_,
-          end: end_,
-          id: id_,
-          pay: values.pay,
-          phone: values.phone,
-          ddl: values.ddl
+          start: start,
+          end: end,
+          ddl: values["ddl"],
+          phone: values["phone"],
+          pay: values["pay"],
+          intro: values["intro"]
         },
         success: res => {
           // 在返回结果中会包含新创建的记录的 _id
           wx.showToast({
-            title: '新增记录成功',
+            title: '创建成功',
           })
           console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
           location.reload();
@@ -303,12 +293,20 @@ Page({
         fail: err => {
           wx.showToast({
             icon: 'none',
-            title: '新增记录失败'
+            title: '创建失败'
           })
           console.error('[数据库] [新增记录] 失败：', err)
         }
       })
-
+      this.setData({
+        start: "",
+        end: "",
+        ddl: "",
+        phone: "",
+        pay: "",
+        intro: "",
+        isShow: false
+      })
     } else {
       wx.showToast({
         title: '请将信息填写完整',

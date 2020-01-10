@@ -12,7 +12,7 @@ Page({
     tag: [],
     img: [],
     id: '',
-    collectionchange: 0   //用来判断是否已经收藏的变量
+    collectionchange: false   //用来判断是否已经收藏的变量
   },
 
   onLoad: function (option) {
@@ -20,7 +20,7 @@ Page({
     app.globalData.myCollection.forEach((item, i) => {
       if (app.globalData.myCollection[i] == option.id) {
         that.setData({
-          collectionchange: 1
+          collectionchange: true
         })
         console.log("what??")
       }
@@ -100,49 +100,33 @@ Page({
     const db = wx.cloud.database()
     var myCollection1 = []  //用户的所有收藏
     //先把用户所有收藏拖下来
-    db.collection('Collection').where({ _openid: app.globalData.openid }).get({
+    db.collection('Collection').where({ _openid: 'oXR3I5fXblGdZNESnv245pd6nXVg' }).get({
       success(res) {
         // res.data 包含该记录的数据
+        console.log(res)
         myCollection1 = res.data[0].myCollection
-        var judge = 0 //判断是否已经收藏
-        myCollection1.forEach((item, i) => {
-          if (that.data.id == myCollection1[i]) {
-            judge = 1
-          }
-        }
-        )
-        if (judge == 0) {
           myCollection1.push(that.data.id)
-          console.log(myCollection1)
+          console.log('加入后的收藏',myCollection1)
           app.globalData.myCollection = myCollection1
-          console.log(app.globalData.myCollection)
           //更新用户收藏
-          db.collection('Collection').doc(id).update({
+        db.collection('Collection').doc('c0a3987b5ce7df7604a4e8e13b7d6951').update({
             data: {
               myCollection: myCollection1
             },
             success(res) {
-              console.log(res.data)
-              this.setData({
-                collectionchange: 1
+              console.log(res)
+              that.setData({
+                collectionchange: true
               })
               wx.showToast({
                 title: '收藏成功'
               })
-              //更新本地全局变量里面的收藏序号和收藏商品的信息
-              app.globalData.myCollection = myCollection1
             },
             fail: err => {
               console.error('自增失败：', err)
             }
           })
-        }
-        else {
-          wx.showToast({
-            title: '您已经收藏过啦'
-          })
-        }
-
+        
       },
       fail: err => {
         wx.showToast({
@@ -154,17 +138,30 @@ Page({
 
   },
   de_collect: function () {
+    var that=this
     app.globalData.myCollection.forEach((item, i) => {
       if (app.globalData.myCollection[i] == this.data.id) {
         app.globalData.myCollection.splice(i, 1)
       }
     })
     console.log(app.globalData.myCollection)
-    this.setData({
-      collectionchange: 0
+    wx.cloud.init()
+    const db = wx.cloud.database();
+    db.collection('Collection').doc('c0a3987b5ce7df7604a4e8e13b7d6951').update({
+      data: {
+        myCollection: app.globalData.myCollection
+      },
+      success(res) {
+        wx.showToast({
+          title: '取消收藏成功'
+        })
+      },
+      fail: err => {
+        console.error('自增失败：', err)
+      }
     })
-    wx.showToast({
-      title: '取消收藏成功'
+    this.setData({
+      collectionchange: false
     })
   },
   //图片点击放大

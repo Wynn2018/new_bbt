@@ -13,7 +13,7 @@
 </view>
 
 <view class='information' bindtap='to_myGoods'>
-  <view class='text'>我发布的</view>
+  <view class='text'>我发布的商品</view>
   <view class='number_container'>
     <view style='font-size:15px;color:grey;'>{{myGoods_number}}</view>
     <image src='../../images/右侧按钮.png' style='margin-left:10px;width:20px;height:50px;'></image>
@@ -21,9 +21,17 @@
 </view>
 
 <view class='information' bindtap='to_collection'>
-  <view class='text' >我收藏的</view>
+  <view class='text' >我收藏的商品</view>
   <view class='number_container'>
     <view style='font-size:15px;color:grey;'>{{collection_number}}</view>
+    <image src='../../images/右侧按钮.png' style='margin-left:10px;width:20px;height:50px;'></image>
+  </view>
+</view>
+
+<view class='information' bindtap='to_myrun'>
+  <view class='text'>我发布的跑腿</view>
+  <view class='number_container'>
+    <view style='font-size:15px;color:grey;'>{{myHelp_number}}</view>
     <image src='../../images/右侧按钮.png' style='margin-left:10px;width:20px;height:50px;'></image>
   </view>
 </view>

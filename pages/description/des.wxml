@@ -47,8 +47,11 @@
   <view class='container-row' style='position: relative; left: 3%; top: 18rpx;'>
     <image style='height: 25px; width: 40px;' src='../../icon/share.svg'></image>
     <view style='font-size: 15px; margin-top: 8rpx;'>分享</view>
-    <image style='height: 25px; width: 40px; margin-left: 5%;' src='../../icon/collect.svg' bindtap='collect'></image>
-    <view style='font-size: 15px; margin-top: 8rpx;' bindtap='collect'>收藏</view>
+
+    <image style='height: 25px; width: 25px; margin-left: 5%;' src='../../icon/collected.png' bindtap='de_collect' hidden="{{!collectionchange}}"></image>
+    <image style='height: 25px; width: 25px; margin-left: 5%;' src='../../icon/uncollect.png' bindtap='collect' hidden="{{collectionchange}}"></image>
+    <view style='font-size: 15px; margin-top: 8rpx;' bindtap='de_collect' hidden="{{!collectionchange}}">已收藏</view>
+        <view style='font-size: 15px; margin-top: 8rpx;' bindtap='collect' hidden="{{collectionchange}}">收藏</view>
 
     <view style='margin-left: 10%; margin-top: 5rpx;'>{{price}}¥</view>
     <button style='font-size: 16px; bottom: 10rpx; right: 22rpx;'>联系卖家</button>
